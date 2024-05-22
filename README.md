@@ -1,3 +1,2 @@
-Wallet App
-Typescript
-Expo
+typescript
+supabase

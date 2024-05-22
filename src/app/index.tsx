@@ -6,7 +6,12 @@ import { StyleSheet, Text, View } from 'react-native';
 export default function HomeScreen() {
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>hellos!</Text>
+      <Text >hellos!</Text>
+
+      <View style={styles.pollContainer}>
+        <Text style={styles.pollTitle}>Example poll question</Text>
+      </View>
+
     </View>
   );
 }
@@ -14,12 +19,19 @@ export default function HomeScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: 'gainsboro',
+    padding:10,
+
+
+  },
+
+  pollContainer:{
     backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    padding:10,
+    borderRadius:5,
   },
-  text: {
-    fontSize: 18,
-    color: '#333',
-  },
+  pollTitle:{
+    fontWeight:"bold",
+    fontSize:16,
+  }
 });

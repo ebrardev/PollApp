@@ -3,10 +3,10 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
-export default function App() {
+export default function HomeScreen() {
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>hello!</Text>
+      <Text style={styles.text}>hellos!</Text>
     </View>
   );
 }

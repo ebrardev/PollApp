@@ -21,7 +21,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: 'gainsboro',
     padding:10,
-
+// work tomorrow
 
   },
 

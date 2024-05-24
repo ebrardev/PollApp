@@ -1,5 +1,6 @@
 // App.tsx
 
+import { Stack } from 'expo-router';
 import React from 'react';
 import { StyleSheet, Text, View ,FlatList} from 'react-native';
 
@@ -8,6 +9,19 @@ const polls =[1,2,3]
 
 export default function HomeScreen() {
   return (
+    <>
+    <Stack.Screen options={{
+      
+      title:"Polls App",
+      headerStyle:{
+        backgroundColor:"#02e0c6"
+      },
+      headerTintColor:"black",
+      headerTitleStyle:{
+        fontWeight:"bold"
+      }
+      
+      }}/>
 
 
       <FlatList 
@@ -22,7 +36,7 @@ export default function HomeScreen() {
         )}
       />
 
-  
+</>
 
   );
 }

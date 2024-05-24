@@ -13,7 +13,8 @@ export default function HomeScreen() {
       <FlatList 
 
         data={polls}
-        contentContainerStyle={{gap:5 }}
+        style={{backgroundColor:"gainsboro"}}
+        contentContainerStyle={styles.container}
         renderItem={()=>(
           <View style={styles.pollContainer}>
         <Text style={styles.pollTitle}>Example poll question</Text>

@@ -1,18 +1,28 @@
 // App.tsx
 
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View ,FlatList} from 'react-native';
+
+
+const polls =[1,2,3]
 
 export default function HomeScreen() {
   return (
-    <View style={styles.container}>
-      <Text >hellos!</Text>
 
-      <View style={styles.pollContainer}>
+
+      <FlatList 
+
+        data={polls}
+        contentContainerStyle={{gap:5 }}
+        renderItem={()=>(
+          <View style={styles.pollContainer}>
         <Text style={styles.pollTitle}>Example poll question</Text>
       </View>
+        )}
+      />
 
-    </View>
+  
+
   );
 }
 
@@ -29,6 +39,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     padding:10,
     borderRadius:5,
+    marginVertical:10,
   },
   pollTitle:{
     fontWeight:"bold",

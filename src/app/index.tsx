@@ -2,7 +2,7 @@
 
 import { Stack } from 'expo-router';
 import React from 'react';
-import { StyleSheet, Text, View ,FlatList} from 'react-native';
+import { StyleSheet, Text, View ,FlatList, Button} from 'react-native';
 
 
 const polls =[1,2,3]
@@ -27,7 +27,7 @@ export default function HomeScreen() {
       <FlatList 
 
         data={polls}
-        style={{backgroundColor:"gainsboro"}}
+       
         contentContainerStyle={styles.container}
         renderItem={()=>(
           <View style={styles.pollContainer}>

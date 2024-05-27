@@ -48,14 +48,14 @@ export default function HomeScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'gainsboro',
+    backgroundColor: 'white',
     padding:10,
 // work tomorrow
 
   },
 
   pollContainer:{
-    backgroundColor: '#fff',
+    backgroundColor: 'white',
     padding:10,
     borderRadius:5,
     marginVertical:10,

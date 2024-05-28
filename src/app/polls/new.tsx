@@ -49,7 +49,7 @@ export default function createPoll() {
 
                     onPress={()=>{
                         const updated = [...options]
-                        delete updated[index]
+                      updated.splice(index,1)
                         setOptions(updated)
                     }}
                   

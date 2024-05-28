@@ -1,15 +1,23 @@
 // App.tsx
 
 import { Stack } from 'expo-router';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { StyleSheet, Text, View ,FlatList, Button} from 'react-native';
 import { Link } from 'expo-router';
 import {AntDesign} from "@expo/vector-icons"
 
 
-const polls =[{id:1},{id:2},{id:3}]
+
 
 export default function HomeScreen() {
+
+  const [polls,setPolls] = useState([])
+
+  useEffect(()=>{
+    const fetchPolls= () =>{
+  console.log("fetching..")
+    }
+  },[])
   return (
     <>
     <Stack.Screen options={{

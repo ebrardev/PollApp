@@ -2,9 +2,10 @@
 
 import { Stack } from 'expo-router';
 import React, { useEffect, useState } from 'react';
-import { StyleSheet, Text, View ,FlatList, Button} from 'react-native';
+import { StyleSheet, Text, View ,FlatList, Button, Alert} from 'react-native';
 import { Link } from 'expo-router';
 import {AntDesign} from "@expo/vector-icons"
+import { supabase } from '../lib/supabase';
 
 
 
@@ -14,9 +15,16 @@ export default function HomeScreen() {
   const [polls,setPolls] = useState([])
 
   useEffect(()=>{
-    const fetchPolls= () =>{
+    const fetchPolls= async () =>{
   console.log("fetching..")
+   let {data,error} = await supabase.from("polls").select("*");
+   if(error) {
+    Alert.alert("error fatching data")
+   }
+   console.log(data)
+   setPolls(data)
     }
+    fetchPolls();
   },[])
   return (
     <>

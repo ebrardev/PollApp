@@ -38,7 +38,8 @@ export default function HomeScreen() {
       headerTitleStyle:{
         fontWeight:"bold"
       },
-      headerRight:() =>  <Link href={"/polls/new"}> <AntDesign name='plus' size={20} color="black" /> </Link>
+      headerRight:() =>  <Link href={"/polls/new"}> <AntDesign name='plus' size={20} color="black" /> </Link>,
+      headerLeft:() =>  <Link href={"/login"}> <AntDesign name='user' size={20} color="black" /> </Link>
       // headerRight:() =>  <AntDesign  onPress={()=>router.push("/polls/new")} />
       }}/>
 

@@ -2,17 +2,20 @@
 
 import { Stack } from 'expo-router';
 import React, { useEffect, useState } from 'react';
-import { StyleSheet, Text, View ,FlatList, Button, Alert} from 'react-native';
+import { StyleSheet, Text ,FlatList, Alert} from 'react-native';
 import { Link } from 'expo-router';
 import {AntDesign} from "@expo/vector-icons"
 import { supabase } from '../lib/supabase';
+import { Database } from '../types/supabase';
+import { Poll } from '../types/db';
 
 
 
+ 
 
 export default function HomeScreen() {
 
-  const [polls,setPolls] = useState([])
+  const [polls,setPolls] = useState<Poll[]>([])
 
   useEffect(()=>{
     const fetchPolls= async () =>{
@@ -52,7 +55,7 @@ export default function HomeScreen() {
         renderItem={({item})=>(
           <Link href={`/polls/${item.id}`} style={styles.pollContainer}>
    
-        <Text style={styles.pollTitle}>{item.id}: Example poll question</Text>
+        <Text style={styles.pollTitle}>{item.id}: {item.question}</Text>
      
       </Link>
         )}

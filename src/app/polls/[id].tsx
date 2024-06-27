@@ -28,21 +28,32 @@ import { useAuth } from "../../providers/AuthProvider";
             const fetchUserVote = async() =>{
                 let {data,error} = await supabase.from("votes").select("*").eq("poll_id",Number.parseInt(id))
                 .eq("user_id",user.id)
+                .limit(1)
                 .single()
-           if(error) {
-            Alert.alert("error fatching data")
+         
+      
+           setUserVote(data)
+           if(data) {
+            setSelected(data.option)
            }
-           console.log(data)
-           setPoll(data)
+
      
             }
             fetchPolls();
+            fetchUserVote();
           },[])
         const vote= async() =>{
+            const newVote = {  
+                option:selected,
+                poll_id:poll.id,user_id:user.id}
+
+                    if(userVote) {
+                        newVote.id= userVote.id
+                    }
             console.warn("Vote:", selected)
             const {data,error} = await supabase
             .from("votes")
-            .insert([{option:selected,poll_id:poll.id,user_id:user.id}])
+            .upsert([newVote])
             .select()
             if(error) {
                 Alert.alert("failed to vote")

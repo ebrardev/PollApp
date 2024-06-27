@@ -25,7 +25,7 @@ export default function ProfileScreen() {
             // headerRight:() =>  <AntDesign  onPress={()=>router.push("/polls/new")} />
             }}/>
         <View style={{padding:10}}>
-            <Text>User id :  {user?.id} </Text>
+            <Text>User email :  {user?.email} </Text>
             <Button title="Sign out" onPress={()=>supabase.auth.signOut()} />
         </View>
         </>

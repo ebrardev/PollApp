@@ -26,6 +26,9 @@ import { useAuth } from "../../providers/AuthProvider";
      
             }
             const fetchUserVote = async() =>{
+                if (!user) {
+                    return;
+                }
                 let {data,error} = await supabase.from("votes").select("*").eq("poll_id",Number.parseInt(id))
                 .eq("user_id",user.id)
                 .limit(1)
@@ -45,7 +48,7 @@ import { useAuth } from "../../providers/AuthProvider";
         const vote= async() =>{
             const newVote = {  
                 option:selected,
-                poll_id:poll.id,user_id:user.id}
+                poll_id:poll.id,user_id:user?.id}
 
                     if(userVote) {
                         newVote.id= userVote.id
@@ -55,9 +58,11 @@ import { useAuth } from "../../providers/AuthProvider";
             .from("votes")
             .upsert([newVote])
             .select()
+            .single()
             if(error) {
                 Alert.alert("failed to vote")
             } else {
+                setUserVote(data)
                 Alert.alert("thanks for your vote")
             }
         }

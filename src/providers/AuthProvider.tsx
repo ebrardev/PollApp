@@ -18,8 +18,12 @@ export default function AuthProvider({children}: PropsWithChildren){
     const [session,setSession]= useState<Session | null>(null)
 
     useEffect(()=>{
-        supabase.auth.getSession().then(({data:{session}})=>{
+        supabase.auth.getSession().then(async({data:{session}})=>{
             setSession(session)
+            if (!session) {
+                supabase.auth.signInAnonymously()
+            }
+       
         })
         supabase.auth.onAuthStateChange((_event,session)=>{
             setSession(session)
